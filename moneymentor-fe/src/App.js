@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import { useState } from "react";
 import MainPage from "./pages/MainPage";
 import FirstChatbot from "./pages/FirstChatbot";
+import SecondChatbot from "./pages/SecondChatbot";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -34,7 +35,7 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<MainPage/>}></Route>
-        <Route path="/product" element={<FirstChatbot/>}></Route>
+        <Route path="/product" element={<SecondChatbot/>}></Route>
         <Route path="/study" element={<FirstChatbot/>}></Route>
       </Routes>
     </Router>

@@ -7,6 +7,7 @@ import left from "../assets/chatbot/leftArrow.png";
 import record from "../assets/chatbot/record.png";
 import Bar from "../components/chatbot/Bar";
 import Sidebar from "../components/chatbot/Sidebar";
+import useReceiveMessages from '../hooks/useReceiveMessages'; // 훅 임포트
 
 // 페이드 인 애니메이션 정의
 const fadeIn = keyframes`
@@ -36,6 +37,7 @@ const EmojiWrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    margin-bottom:20px;
 `;
 
 const Logo = styled.div`
@@ -119,7 +121,6 @@ const ReceiveMessage = styled.div`
     animation: ${fadeIn} 0.5s ease-out;
 `;
 
-// 로딩 스피너 스타일
 const Spinner = styled.div`
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-left-color: #000;
@@ -135,8 +136,8 @@ const Spinner = styled.div`
     }
 `;
 
-function FirstChatbot() {
-    const [messages, setMessages] = useState([]); // 통합된 메시지 배열
+function SecondChatbot(props) {
+    const [messages, setMessages] = useState([]);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const messageEndRef = useRef(null);
     const [loading, setLoading] = useState(false);
@@ -146,35 +147,30 @@ function FirstChatbot() {
     const handleSendMessage = async (newMessage) => {
         console.log("input:", newMessage);
         if (newMessage) {
-            // 보낸 메시지 추가
-            setMessages(prevMessages => [
-                ...prevMessages,
-                { text: newMessage, type: 'sent' } // 보낸 메시지는 'sent' 타입
-            ]);
-
+            setMessages(prevMessages => [...prevMessages, { text: newMessage, type: 'user' }]);
+            setLoading(true);
+            
             try {
-                setLoading(true);
-                // 메시지를 서버로 POST 요청
-                const response = await axios.post('http://localhost:8000/api/messages', {
+                // 서버로 POST 요청
+                const response = await axios.post('http://localhost:8000/api/recommend', {
                     message: newMessage
                 });
 
-                const serverResponse = response.data.response; // 서버의 응답 메시지
+                // 서버 응답 처리
+                const serverResponse = response.data.response;
                 console.log('서버 응답:', serverResponse);
 
-                // 서버 응답 메시지를 추가
-                setMessages(prevMessages => [
-                    ...prevMessages,
-                    { text: serverResponse, type: 'received' } // 받은 메시지는 'received' 타입
-                ]);
-                setLoading(false);
+                // 응답 메시지 추가
+                setMessages(prevMessages => [...prevMessages, { text: serverResponse, type: 'bot' }]);
             } catch (error) {
                 console.error("메시지 전송 실패:", error);
                 alert("메시지 전송 중 문제가 발생했습니다.");
+            } finally {
                 setLoading(false);
             }
         }
     };
+    
 
     const handleArrowClick = () => {
         navigate(-1);
@@ -198,23 +194,18 @@ function FirstChatbot() {
         const fetchDummyData = () => {
             setTimeout(() => {
                 const dummyMessages = [
-                    "안녕하세요 머니멘토 경제공부 챗봇입니다😎",
-                    "궁금하신 경제 용어에 대해 질문해주세요",
+                    { text: "안녕하세요 머니멘토 경제상품 추천 챗봇입니다😎<br>상품 추천을 위해 다음 질문에 답변해주세요!", type: 'bot' },
+                    { text: "이름과 나이,연봉, 목표, 현재 저축액, 투자 경험, 투자 성향, 월별 투자 가용금액을 알려주세요", type: 'bot' },
+                    { text: "투자성향은 <a href='https://terms.naver.com/entry.naver?docId=1630644&cid=42106&categoryId=42106' target='_blank' rel='noopener noreferrer'>여기서 확인할 수 있어요!</a>", type: 'bot' }
                 ];
-
-                dummyMessages.forEach(message => {
-                    setMessages(prevMessages => [
-                        ...prevMessages,
-                        { text: message, type: 'received' }
-                    ]);
-                });
+                
+                dummyMessages.forEach(message => setMessages(prevMessages => [...prevMessages, message]));
             }, 1000);
         };
 
         fetchDummyData();
     }, []);
 
-    
     return (
         <Wrapper>
             <EmojiWrapper>
@@ -228,15 +219,13 @@ function FirstChatbot() {
             </EmojiWrapper>
             <ChatWrapper>
                 <MessageList>
-                    {messages.map((msg, index) =>
-                        msg.type === 'sent' ? (
-                            <Message key={index}>{msg.text}</Message>
-                        ) : (
-                            <ReceiveMessage key={index}>{msg.text}</ReceiveMessage>
-                        )
-                    )}
+                    {messages.map((msg, index) => (
+                        msg.type === 'user' ? 
+                            <Message key={index}>{msg.text}</Message> : 
+                            <ReceiveMessage key={index} dangerouslySetInnerHTML={{ __html: msg.text }} />
+                    ))}
                     <div ref={messageEndRef} />
-                    {loading && <Spinner />} {/* 로딩 상태일 때 스피너 표시 */}
+                    {loading && <Spinner />}
                 </MessageList>
             </ChatWrapper>
             <Bar onSendMessage={handleSendMessage} />
@@ -245,4 +234,4 @@ function FirstChatbot() {
     );
 }
 
-export default FirstChatbot;
+export default SecondChatbot;
