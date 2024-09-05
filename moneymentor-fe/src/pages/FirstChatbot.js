@@ -122,14 +122,34 @@ const ReceiveMessage = styled.div`
 
 function FirstChatbot(props) {
     const [messages, setMessages] = useState([]);
-    const { receivedMessages, addReceivedMessage } = useReceiveMessages(); // 훅 사용
+    const { receivedMessages, addReceivedMessage } = useReceiveMessages();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const messageEndRef = useRef(null);
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
-    const handleSendMessage = (newMessage) => {
-        setMessages([...messages, newMessage]); // 새로운 메시지를 뒤에 추가
+
+    const handleSendMessage = async (newMessage) => {
+        console.log("input:", newMessage);
+        if (newMessage) {
+            try {
+                
+                {/* 서버 연동시 활성화*/}
+                // // 메시지를 서버로 POST 요청
+                // const response = await axios.post('https://your-server-url/api/messages', {
+                //     message: newMessage
+                // });
+
+                // 성공 시 메시지 추가
+                // console.log('서버 응답:', response.data);
+                setMessages([...messages, newMessage]); 
+                
+            } catch (error) {
+                // 에러 처리
+                console.error("메시지 전송 실패:", error);
+                alert("메시지 전송 중 문제가 발생했습니다.");
+            }
+        }
     };
 
     const handleArrowClick = () => {
