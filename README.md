@@ -14,12 +14,12 @@
 
 ## 🛠️ **사용 스택**
 
-<img src="https://img.shields.io/badge/react-20232a.svg?style=for-the-badge&logo=react&logoColor=61DAFB"/>&nbsp
-<img src="https://img.shields.io/badge/javascript-20232a.svg?style=for-the-badge&logo=javascript&logoColor=#F7DF1E"/>&nbsp
-<img src="https://img.shields.io/badge/html5-20232a.svg?style=for-the-badge&logo=html5&logoColor=#E34F26"/>&nbsp
-<img src="https://img.shields.io/badge/styledcomponents-20232a.svg?style=for-the-badge&logo=styledcomponents&logoColor=#DB7093"/>&nbsp
-<img src="https://img.shields.io/badge/css3-20232a.svg?style=for-the-badge&logo=css3&logoColor=#1572B6"/>&nbsp
-<img src="https://img.shields.io/badge/figma-20232a.svg?style=for-the-badge&logo=figma&logoColor=#F24E1E"/>&nbsp
+<img src="https://img.shields.io/badge/react-20232a.svg?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/javascript-20232a.svg?style=for-the-badge&logo=javascript&logoColor=#F7DF1E"/>
+<img src="https://img.shields.io/badge/html5-20232a.svg?style=for-the-badge&logo=html5&logoColor=#E34F26"/>
+<img src="https://img.shields.io/badge/styledcomponents-20232a.svg?style=for-the-badge&logo=styledcomponents&logoColor=#DB7093"/>
+<img src="https://img.shields.io/badge/css3-20232a.svg?style=for-the-badge&logo=css3&logoColor=#1572B6"/>
+<img src="https://img.shields.io/badge/figma-20232a.svg?style=for-the-badge&logo=figma&logoColor=#F24E1E"/>
 
 
 
