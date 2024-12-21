@@ -1,1 +1,43 @@
-# Frontend
+# 🪙 **MoneyMentor**
+
+
+
+## 🙂 **팀원 소개**
+
+| **팀원 이름** | **역할** | **맡은 기능**                        |
+|---------------|----------|--------------------------------------|
+| 강민서        | FE      | UI 디자인, API 설계                     |
+
+
+
+
+
+## 🛠️ **사용 스택**
+
+<img src="https://img.shields.io/badge/react-20232a.svg?style=for-the-badge&logo=react&logoColor=61DAFB"/>&nbsp
+<img src="https://img.shields.io/badge/javascript-20232a.svg?style=for-the-badge&logo=javascript&logoColor=#F7DF1E"/>&nbsp
+<img src="https://img.shields.io/badge/html5-20232a.svg?style=for-the-badge&logo=html5&logoColor=#E34F26"/>&nbsp
+<img src="https://img.shields.io/badge/styledcomponents-20232a.svg?style=for-the-badge&logo=styledcomponents&logoColor=#DB7093"/>&nbsp
+<img src="https://img.shields.io/badge/css3-20232a.svg?style=for-the-badge&logo=css3&logoColor=#1572B6"/>&nbsp
+<img src="https://img.shields.io/badge/figma-20232a.svg?style=for-the-badge&logo=figma&logoColor=#F24E1E"/>&nbsp
+
+
+
+## 💡 **서비스 소개**
+
+**사회초년생의 경제적 성장 파트너, MoneyMentor!**  
+사회 초년생들이 처음 겪는 가장 큰 어려움 중 하나는 효과적으로 돈을 모으는 방법을 찾는 것입니다.  
+어떤 경제 상품이 있는지, 혹은 자신의 상황에 맞는 상품을 찾는 것은 쉽지 않은 일입니다.  
+
+**MoneyMentor는 두 가지 핵심 기능을 제공합니다:**  
+1. **경제 상품 추천 챗봇**  
+   - 사용자의 상황에 적합한 경제 상품을 추천합니다.  
+2. **경제 용어 사전 챗봇**  
+   - 경제 관련 용어를 쉽게 학습할 수 있는 기능을 제공합니다.  
+
+이 두 가지 서비스를 통해 사회 초년생들이 **경제 상품 추천**을 받을 뿐만 아니라 **경제 지식**도 쌓을 수 있도록 돕습니다.  
+
+**서비스 기획 의도:**  
+저희 팀원들은 모두 대학교 3~4학년생으로서 이러한 기능의 필요성을 실질적으로 느끼고 있습니다. 이러한 경험을 바탕으로, 사회 초년생들에게 꼭 필요한 서비스를 제공하고자 MoneyMentor를 기획하게 되었습니다.  
+
+
